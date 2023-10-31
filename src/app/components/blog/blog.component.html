@@ -1,0 +1,47 @@
+
+<!-- 
+<div class="blog">
+
+    <div class="main"> 
+        <div class="btn btn-primary m-3" (click)="addblog()">Add</div>
+        <div class="card w-75 mb-3" *ngFor="let item of bloglist">
+            <div class="card-body">
+                <h5 class="card-title">{{item.title}}</h5>
+                <p class="card-text">{{item.description}}</p>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="m-5" style="text-align: center;">
+    <h1>Technology blogs</h1>
+    <div *ngIf="!bloginfo.errorMsg">
+        
+        <button (click)="addblog()" mat-raised-button color="primary">Add blog</button>
+        <br>
+        <mat-card *ngIf="!bloginfo.bloglist.length">
+            <h1><strong> NO BLOGS </strong></h1>
+        </mat-card>
+
+    <mat-card class="m-3" *ngFor="let item of bloginfo.bloglist ">
+        <mat-card-header>
+            <h1>{{item.title}}</h1>
+            <div style="text-align: right;width: 100%;">
+                <button class="m-3" (click)="editblog(item.id)" mat-raised-button color="primary"><mat-icon fontIcon="edit"></mat-icon></button>
+                <button (click)="removeblog(item.id)" mat-raised-button color="accent"><mat-icon fontIcon="delete"></mat-icon></button>
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{item.description}}</p>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+    <mat-card *ngIf="bloginfo.errorMsg">
+        <mat-card-header>
+            <h1>Error Occured</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <p style="color: red;">{{bloginfo.errorMsg}}</p>
+        </mat-card-content>
+    </mat-card>
+</div>

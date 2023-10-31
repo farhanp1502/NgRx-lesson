@@ -1,0 +1,24 @@
+<!-- <div>
+    <form  class="my-form">
+      <label for="inputField">Enter something:</label>
+      <input type="text" id="inputField" [(ngModel)]="inputValue" name="inputField" required>
+      <button (click)="customincrement()" class="my-button">Custom Increment</button>
+    </form>
+  </div> -->
+  <div>
+    <form class="my-form">
+      <h2>{{counterchannel}}</h2>
+      <label for="inputField">Enter something:</label>
+      <input type="text" id="inputField" [(ngModel)]="inputValue" name="inputField" required>
+  
+      <label for="operation">Select Operation:</label>
+      <select id="operation" [(ngModel)]="selectedOperation" name="operation" required>
+        <option value="add">Add</option>
+        <option value="remove">Remove</option>
+      </select>
+  
+      <button (click)="customincrement()" class="my-button">Procced</button>
+    </form>
+  </div>
+  
+  
